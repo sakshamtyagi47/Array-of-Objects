@@ -1,0 +1,23 @@
+body{
+    background-color: white;
+
+}
+
+h1{
+    text-decoration: underline;
+    text-align: center;
+}
+.question{
+    color: dodgerblue;
+    font-size: 20px;
+}
+
+p{
+    color: orange;
+    font-size: 20px;
+}
+
+pre{
+    color: green;
+    font-size: 20px;
+}

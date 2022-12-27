@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array of Object</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <h1>Array of Object</h1>
+    <pre class="question">
+        Question:
+        let studentRecords = [ 
+            {name: 'John', id: 123, marks : 98 },
+            {name: 'Baba', id: 101, marks : 23 },
+            {name: 'yaga', id: 200, marks : 45 },
+            {name: 'Wick', id: 115, marks : 75 } 
+        ] 
+    </pre>
+
+    <p>
+        Q1. We are interested in retrieving only the students' names; all the names should be in caps. <br>
+        ['JOHN', 'BABA', 'YAGA', 'WICK']
+    </p>
+
+    <pre>
+    Code:
+    let arr1 = studentRecords.map(x => x.name.toUpperCase());
+     console.log(arr1);
+    </pre>
+
+    <p>
+        Q2. Suppose we have the same dataset as above but this time we want to get the details of students who scored
+        more than 50 marks. <br>
+
+        [{name: 'John', id: 123, marks: 98 },{name: 'Wick', id: 115, marks: 75 }]
+    </p>
+    <pre>
+    Code:
+    let arr2 = studentRecords.filter(mark => mark.marks >50);
+   console.log(arr2);
+    </pre>
+
+    <p>
+        Q3. Retrieve the details of students who scored more than 50 marks and have IDs greater than 120.
+    </p>
+
+    <pre>
+    Code:
+    let arr3 = studentRecords.filter(stdt => stdt.marks >50 && stdt.id > 120);
+    console.log(arr3);
+    </pre>
+
+    <p>
+        Q4. Consider the same scenario we have discussed above, but this time we would like to know the sum total of the
+        marks of the students.
+    </p>
+    <pre>
+    Code:
+    let arr4 = studentRecords.reduce((a,b) => a+b.marks,0);
+    console.log(arr4);
+
+    </pre>
+
+    <p>
+        Q5. This time we want to get only the names of the students who scored more than 50 marks from the same dataset
+        used above.
+    </p>
+    <pre>
+    Code:
+    let arr5 = studentRecords.filter(mark => mark.marks > 50);
+
+            console.log(arr5.map(a => a.name));
+    </pre>
+
+    <p>
+        Q6. This time we are required to print the sum of marks of the students with id > 120.
+    </p>
+    <pre>
+    Code:
+    let arr6 = studentRecords.filter(id => id.id > 120).reduce((acc,cur) => acc+cur.marks,0);
+    console.log(arr6);
+    </pre>
+
+    <p>
+        Q7. This time we are required to print the total marks of the students with marks greater than 50 after a grace
+        of 15 marks has been added to those students who scored less than 50.
+    </p>
+
+    <pre>
+    Code:
+    let arr7 = studentRecords.map (function(mark){
+        if(mark.marks < 50){
+            mark.marks +=15
+        };
+        return mark;
+}).filter(mark => mark.marks > 50).reduce((acc,cur) => acc+cur.marks,0);
+console.log(arr7);
+
+    </pre>
+
+    <p>
+        Q8. Create 6 objects , each object will have name, class, roll no as properties. Store these objects in an array
+        of objects.
+    </p>
+
+    <pre>
+        Code:
+        let frd1={ 
+            name:"richerts", 
+            class: 12,
+            rollno : 32 
+            } 
+            let frd2={ 
+            name:"rishu", 
+            class: 10, 
+            rollno:23 
+            } 
+            let frd3={ 
+            name:"saksham", 
+            class:9,
+            rollno:45
+            } 
+            let frd4={ 
+            name:"vishal", 
+            class:11,
+            rollno:56
+            } 
+            let frd5={ 
+            name:"satis", 
+            class:8,
+            rollno:36 
+            } 
+            let frd6={ 
+            name:"Subh", 
+            class:6,
+            rollno:21
+            } 
+            let arr=[{...frd1},{...frd2},{...frd3},{...frd4},{...frd5},{...frd6}]; 
+            console.log(arr);
+    </pre>
+
+    <script src="index.js"></script>
+</body>
+
+</html>
